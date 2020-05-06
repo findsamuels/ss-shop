@@ -1,0 +1,17 @@
+@import '../../scss/main.scss';
+
+.ItemControl{
+margin: 0 auto;
+    text-align: start;
+    @include respond(phone){
+      
+        text-align: center;
+    }
+}
+
+.FilterLabel{
+    text-align: start;
+    font-weight: lighter;
+    padding: 1rem 0;
+    color: $color-primary;
+}

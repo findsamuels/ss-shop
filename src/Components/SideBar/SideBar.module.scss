@@ -1,0 +1,64 @@
+@import '../../scss/main.scss';
+
+.SideBar{
+height: 100%;
+position: fixed;
+padding: 1rem;
+background-color: $color-darkGrey;
+color: $color-white;
+width: 70%;
+right: 0;
+top: 0;
+z-index: 100;
+display: none;
+
+animation: slide-out .5s ease-in-out;
+
+ @include respond(minPhone){
+        display: none !important;
+    }
+}
+
+.controlContainer{
+@include borderBottom(.1rem, $color-grey);
+padding-bottom: 1rem;
+}
+
+.left{
+    left: 0
+}
+
+.right{
+    right: 0
+}
+.show{
+    display: block;
+    animation: slide-in .5s ease-in-out;
+}
+
+@keyframes slide-in {
+  
+    0%{
+        opacity: 0;
+      transform: translateX(100%);
+    }
+
+      100%{     
+        opacity: 1;
+   
+        
+    }
+}
+@keyframes slide-out {
+  
+    100%{
+        opacity: 0;
+      transform: translateX(-100%);
+    }
+
+      0%{     
+        opacity: 1;
+   
+        
+    }
+}

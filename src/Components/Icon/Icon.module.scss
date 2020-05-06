@@ -1,0 +1,67 @@
+@import '../../scss/main.scss';
+
+.Icon{
+    font-size: 2rem;
+    cursor: pointer;
+
+}
+
+.lg{
+font-size: 6rem;
+
+}
+
+.md{
+font-size: 4rem;
+}
+.sm{
+font-size: 2rem;
+}
+.xs{
+font-size: 1rem;
+}
+.white{
+    color: $color-white;
+    &:hover{
+    color: $color-grey;
+}
+    
+}
+.grey{
+    color: $color-grey;
+    &:hover{
+    color: $color-darkGrey;
+}
+}
+.darkGrey{
+    color: $color-darkGrey;
+    &:hover{
+    color: $color-grey;
+}
+}
+.black{
+    color: $color-black;
+    &:hover{
+    color: $color-darkGrey;
+}
+}
+
+.primary{
+    color: $color-primary;
+    &:hover{
+    opacity: .8;
+}
+}
+
+.orange{
+    color: $color-orange;
+    &:hover{
+    opacity: .8;
+}
+}
+.red{
+    color: $color-red;
+    &:hover{
+    opacity: .8;
+}
+}

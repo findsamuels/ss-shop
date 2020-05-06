@@ -1,0 +1,30 @@
+@import '../../scss/main.scss';
+
+.HeaderBar{
+z-index: 98;
+    width: 100%;
+    background-color: white;
+     color:  $color-primary;
+    padding: 0 1rem;
+    margin: 0 auto;  
+}
+
+.none{
+    display: none;
+}
+.darkGrey{
+ background-color: $color-darkGrey;
+    color: $color-white;
+}
+.grey{
+    background-color: $color-grey;
+    color:  $color-darkGrey;
+}
+.red{
+    background-color: $color-red;
+    color:  $color-white;
+}
+.primary{
+background-color: $color-primary;
+ color:  $color-white;
+}

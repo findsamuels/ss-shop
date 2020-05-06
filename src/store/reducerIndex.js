@@ -1,0 +1,20 @@
+export {
+UiReducer
+}from './Ui/reducer'
+
+export {
+cartReducer
+}from './cart/reducer'
+
+export{
+    shopItemReducer
+}from './shop/reducer'
+
+export{
+checkoutReducer
+}from './checkout/reducer'
+
+export{
+authReducer
+}from './auth/reducer'
+

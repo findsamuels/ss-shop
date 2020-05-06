@@ -1,0 +1,39 @@
+@import '../../../scss/main.scss';
+
+.formElement{
+
+}
+
+.Input{
+padding: .5rem;
+margin: .5rem 0;
+outline: none;
+color: $color-primary;
+width: 100%;
+@include border(.1rem, $color-grey);
+
+&:focus{
+@include border(.1rem, $color-green);
+}
+
+}
+
+.Select{
+    width: 100%;
+    margin: .5rem 0;
+padding: .5rem;
+outline: none;
+@include border(.1rem, $color-grey);
+color: $color-primary;
+
+&:focus{
+@include border(.1rem, $color-green);
+}
+   
+}
+.options{
+       &:hover{
+        background-color: $color-primary;
+    } 
+    
+    } 

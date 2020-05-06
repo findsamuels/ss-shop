@@ -1,0 +1,79 @@
+@import '../../scss/main.scss';
+
+.Modal{
+    position: fixed;
+    top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+    padding: 1rem;
+    overflow: scroll;
+    @include boxShadow(.1rem, .2rem, $color-grey);
+    width: 30%;
+    max-height: 60%;
+    z-index: 100;
+    background-color: $color-white;
+    display: none;
+}
+.showLogin{
+    display: block;
+    
+}
+.showCart{
+    display: block;
+    
+}
+.showPayment{
+    display: block;
+    
+}
+@include respond(largeTablet){
+    .Modal{
+ 
+    width: 50%;
+
+}
+}
+@include respond(tablet){
+    .Modal{
+ 
+    width: 80%;
+
+}
+}
+.Content{
+    padding: 1rem;
+    text-align: start;
+}
+
+.TitleBox{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+   
+    @include borderBottom(.1rem, $color-grey);
+}
+
+.ModalIcon{
+font-size: 2rem;
+color: $color-darkGrey;
+
+}
+.Title{
+font-size: 2rem;
+}
+
+
+@keyframes fade-in {
+  
+    0%{
+        opacity: 0;
+     
+    }
+
+      100%{     
+        opacity: 0.7;
+   
+        
+    }
+}

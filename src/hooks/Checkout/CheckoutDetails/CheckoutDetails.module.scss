@@ -1,0 +1,23 @@
+
+@import '../../../scss/main.scss';
+
+.CheckoutDetails{
+
+    width: 50%;
+margin: 2rem auto;
+    @include respond(tablet){
+        width: 80%;
+    }
+}
+
+.checkoutItemContainer{
+text-align: start;
+@include boxShadow(.2rem, .3rem, $color-grey);
+padding: 1rem;
+margin: 1rem 0;
+
+h4{
+    font-weight: bold;
+    padding: 1rem 0;
+}
+}

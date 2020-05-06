@@ -1,0 +1,29 @@
+@import '../../scss/main.scss';
+
+.ControlComponent{
+    
+    @include twoCol;
+}
+.controlContainer{
+    padding: 0 1rem;
+    cursor: pointer;
+}
+.cartContainer{
+   padding: 0 2rem;
+    @include twoCol;
+}
+
+.cartAmount{
+    padding-left: .5rem;
+    margin-top: 2rem;
+   
+    font-size: 1.2rem;
+}
+
+.NoItem{
+    color: $color-red;
+}
+
+.ItemInCart{
+    color: $color-green;
+}

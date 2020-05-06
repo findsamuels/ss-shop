@@ -1,0 +1,13 @@
+@import '../../scss/main.scss';
+
+.Register{
+margin: 2rem auto;
+
+}
+
+.linkText{
+@include linkText;
+}
+.TitleBox{
+    @include twoCol
+}

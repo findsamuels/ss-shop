@@ -1,0 +1,12 @@
+@import '../../scss/main.scss';
+
+.ItemControlBox{
+    padding: 1rem;
+
+    @include respond(largeTablet){
+        height: auto;
+    }
+   
+
+}
+

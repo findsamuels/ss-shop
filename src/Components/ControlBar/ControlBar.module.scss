@@ -1,0 +1,36 @@
+@import '../../scss/main.scss';
+
+.ControlBar{
+
+@include twoCol;
+justify-content: space-between;
+padding: 0 2rem;
+}
+.barClass{
+display: none;
+    @include respond(phone){
+        display: block;
+        order: 1;
+    }
+}
+.logoClass{
+
+     @include respond(phone){
+        order: 0;
+    }
+}
+.controlClass{
+align-items: center;
+     @include respond(phone){
+        
+        display: none;
+    }
+}
+
+.SaleDiv{
+
+
+     @include respond(largeTablet){
+         display: none;
+    }
+}

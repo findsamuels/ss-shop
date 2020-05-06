@@ -1,0 +1,9 @@
+@import '../../scss/main.scss';
+
+.Hamburger{
+display: none;
+
+@include respond(phone){
+    display: block;
+}
+}

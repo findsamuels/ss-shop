@@ -1,0 +1,25 @@
+@import '../../scss/main.scss';
+
+.ItemListContainer{
+
+}
+
+
+.ItemList{
+     margin: 5rem 0;
+    max-height: 42rem;
+    text-align: start;
+    img{
+        width: 100%;
+    }
+}
+
+.Price{
+    padding-top: 1rem ;
+}
+
+.Title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}

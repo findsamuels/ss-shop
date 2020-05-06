@@ -1,0 +1,35 @@
+@import '../../scss/main.scss';
+
+.Navigation{
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+     padding: 1rem 0;
+     margin-bottom: 0;
+
+     @include respond(phone){
+         display: none;
+     }
+}
+
+ li{
+list-style: none;
+padding: 1rem 0 1rem 0;
+
+    }
+    .NavText{
+color: $color-primary;
+text-decoration: none;
+font-weight: lighter;
+text-transform: uppercase;
+padding-bottom: 1rem;
+
+
+&:hover{
+    color: $color-darkGrey;
+    @include borderBottom(.1rem, $color-darkGrey);
+    text-decoration: none;
+    
+}
+
+    }

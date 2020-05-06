@@ -1,0 +1,59 @@
+@import '../../scss/main.scss';
+
+.Cart{
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    @include borderBottom(.1rem, $color-grey);
+
+    img{
+width: 100%;
+height: 100%;
+    }
+    h4{
+font-weight: bold;
+    }
+    p{
+font-weight: lighter;
+    }
+}
+
+.descContainer{
+width: 50%;
+}
+
+.cartImgContainer{
+width: 40%;
+}
+
+.TotalPriceContainer{
+
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+ margin: 1rem auto;
+
+    h2{
+font-weight: lighter;
+    }
+    p{
+        color: $color-primary;
+        margin: 0 auto;
+    }
+}
+
+.qtyControlBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @include boxShadow(.1rem, .2rem, $color-grey);
+    padding: .5rem
+
+}
+
+.cartLink{
+   @include noDecoration
+}

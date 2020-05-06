@@ -1,0 +1,20 @@
+@import '../../scss/main.scss';
+
+
+.Stripe{
+   margin: 2rem 0 ;
+ @include boxShadow(.1rem,.3rem, $color-darkGrey);
+   h4{
+       color: $color-darkGrey;
+      font-weight: bold;
+      padding: 1rem ;
+   }
+}
+
+.CardElement{
+    padding: 1rem;
+     margin: 1 auto;
+    
+    color: $color-darkGrey;
+  
+}
