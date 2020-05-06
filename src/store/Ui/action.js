@@ -1,11 +1,33 @@
 
 import * as actionTypes from '../actionTypes'
 
-export const toggleBackdrop = () => {
+export const openBackdrop = () => {
 return{
-    type: actionTypes.TOGGLE_BACKDROP
+    type: actionTypes.OPEN_BACKDROP
 }
 }
+
+export const closeBackdrop = () => {
+    return {
+        type: actionTypes.CLOSE_BACKDROP
+    }
+}
+
+
+export const showSideBarBackdrop = () => {
+    return {
+        type: actionTypes.SHOW_SIDE_BACKDROP
+    }
+}
+
+export const closeSideBarBackdrop = () => {
+    return {
+        type: actionTypes.CLOSE_SIDE_BACKDROP
+    }
+}
+
+
+
 
 export const togglesSideBar = () => {
     return {

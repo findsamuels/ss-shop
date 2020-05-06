@@ -16,7 +16,7 @@ const SideBar = (props) => {
         }
         const control = () => {
 
-                dispatch(actionCreators.toggleBackdrop())
+                dispatch(actionCreators.closeSideBarBackdrop())
                 dispatch(actionCreators.togglesSideBar())
         }
 

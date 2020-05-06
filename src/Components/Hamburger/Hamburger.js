@@ -9,7 +9,7 @@ const Hamburger = (props) => {
 const dispatch = useDispatch()
     const control = () => {
         dispatch(actionCreators.closeCart())
-        dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.showSideBarBackdrop())
         dispatch(actionCreators.togglesSideBar())
     }
 

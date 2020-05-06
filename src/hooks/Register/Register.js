@@ -23,7 +23,7 @@ history.push('/')
 const openLogin = () => {
 
     dispatch(actionCreators.openLogin())
-    dispatch(actionCreators.toggleBackdrop())
+    dispatch(actionCreators.openBackdrop())
 }
    
 

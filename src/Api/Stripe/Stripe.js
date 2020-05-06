@@ -20,13 +20,13 @@ const Stripe = () => {
 const dispatch = useDispatch()
     const closePayment = () => {
 dispatch(actionCreators.closePayment())
- dispatch(actionCreators.toggleBackdrop());
+ dispatch(actionCreators.closeBackdrop());
     }
 
     const confirmPayment = (event) => {
 event.preventDefault();
       dispatch(actionCreators.closePayment());
-       dispatch(actionCreators.toggleBackdrop());
+      dispatch(actionCreators.closeBackdrop());
 
       history.push('/')
     };

@@ -47,14 +47,14 @@ const dispatch = useDispatch()
   
 
     const closeCart = (totalPrice) => {
-        dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.closeBackdrop())
         dispatch(actionCreators.closeCart())
         dispatch(actionCreators.goToCheckout(totalPrice))
         console.log(itemInCart)
     }
     const goToCheckout = (totalPrice) => {
         dispatch(actionCreators.closeCart())
-        dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.closeBackdrop())
         dispatch(actionCreators.goToCheckout(totalPrice))
         dispatch(actionCreators.checkoutClicked())
     }

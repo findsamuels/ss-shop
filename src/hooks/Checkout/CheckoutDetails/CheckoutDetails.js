@@ -9,7 +9,7 @@ const CheckoutDetails = () => {
     const dispatch = useDispatch()
 
     const openPayment = () => {
- dispatch(actionCreators.toggleBackdrop());
+ dispatch(actionCreators.openBackdrop());
         dispatch(actionCreators.openPayment());
     }
     return (

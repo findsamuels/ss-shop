@@ -11,12 +11,12 @@ const ControlComponent = (props) => {
   const amountInCart = useSelector(state => state.cartReducer.amountInCart)
   const toggleCart = () => {
     dispatch(actionCreators.toggleCart())
-    dispatch(actionCreators.toggleBackdrop())
+    dispatch(actionCreators.openBackdrop())
   }
 
   const showLogin = () => {
     dispatch(actionCreators.openLogin())
-    dispatch(actionCreators.toggleBackdrop())
+    dispatch(actionCreators.openBackdrop())
     dispatch(actionCreators.checkoutNotClicked())
   }
 

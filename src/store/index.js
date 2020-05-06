@@ -1,7 +1,10 @@
 export {
-    toggleBackdrop,
+    openBackdrop,
+    closeBackdrop,
     togglesSideBar,
     closeSideBar,
+    showSideBarBackdrop,
+    closeSideBarBackdrop,
     toggleCart,
     closeCart,
     openLogin,

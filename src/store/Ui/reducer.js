@@ -2,16 +2,23 @@ import * as actionTypes from '../actionTypes'
 import UtilityObject from '../../Utility/Utility'
 const initialState = {
   showBackDrop: false,
+  showSideBarBackdrop: false,
   showSideBar: false,
   showCart: false,
   showLogin: false,
   showPayment: false
 };
 
-const toggleBackdrop = (state, action) => {
+const openBackdrop = (state, action) => {
     return UtilityObject(state, {
-        showBackDrop: state.showBackDrop = !state.showBackDrop
+        showBackDrop: state.showBackDrop = true
     })
+}
+
+const closeBackdrop = (state, action) => {
+  return UtilityObject(state, {
+    showBackDrop: state.showBackDrop = false
+  })
 }
 
 const toggleSideBar = (state, action) => {
@@ -57,11 +64,26 @@ const closePayment = (state, action) => {
   });
 };
 
+const showSideBarBackdrop = (state, action) => {
+  return UtilityObject(state, {
+    showSideBarBackdrop: (state.showSideBarBackdrop = true),
+  });
+};
+
+const closeSideBarBackdrop = (state, action) => {
+  return UtilityObject(state, {
+    showSideBarBackdrop: (state.showSideBarBackdrop = false),
+  });
+};
+
 export const UiReducer = (state = initialState, action) => {
 
     switch (action.type) {
-      case actionTypes.TOGGLE_BACKDROP:
-        return toggleBackdrop(state, action);
+      case actionTypes.OPEN_BACKDROP:
+        return openBackdrop(state, action);
+      case actionTypes.CLOSE_BACKDROP:
+        return closeBackdrop(state, action);
+
       case actionTypes.TOGGLE_SIDEBAR:
         return toggleSideBar(state, action);
       case actionTypes.CLOSE_SIDEBAR:
@@ -78,6 +100,13 @@ export const UiReducer = (state = initialState, action) => {
         return openPayment(state, action);
       case actionTypes.CLOSE_PAYMENT:
         return closePayment(state, action);
+
+
+      case actionTypes.SHOW_SIDE_BACKDROP:
+        return showSideBarBackdrop(state, action);
+      case actionTypes.CLOSE_SIDE_BACKDROP:
+        return closeSideBarBackdrop(state, action);
+
       default:
         return state;
     }

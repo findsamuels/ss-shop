@@ -14,7 +14,7 @@ const Login = (props) => {
     const login = (event) => {
 event.preventDefault()
         dispatch(actionCreators.closeLogin())
-        dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.closeBackdrop())
         dispatch(actionCreators.startAuth())
     }
 
@@ -22,11 +22,11 @@ event.preventDefault()
 
 
         dispatch(actionCreators.closeLogin())
-        dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.closeBackdrop())
     }
     const goToRegister = () => {
         dispatch(actionCreators.closeLogin())
-        dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.closeBackdrop())
     }
 
     return(
