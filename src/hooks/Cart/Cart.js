@@ -55,8 +55,8 @@ const dispatch = useDispatch()
     const goToCheckout = (totalPrice) => {
         dispatch(actionCreators.closeCart())
         dispatch(actionCreators.toggleBackdrop())
-
         dispatch(actionCreators.goToCheckout(totalPrice))
+        dispatch(actionCreators.checkoutClicked())
     }
     let totalPrices = 0
 

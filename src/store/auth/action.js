@@ -14,6 +14,13 @@ export const startAuth = () => {
     }
 }
 
+export const logout = () => {
+    return dispatch => {
+        dispatch(removeAuth())
+    }
+}
+
+
 export const removeAuth = () => {
 return{
     type: actionTypes.REMOVE_AUTH

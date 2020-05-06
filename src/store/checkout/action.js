@@ -6,3 +6,17 @@ export const goToCheckout = (totalPrice) => {
         totalPrice: totalPrice
     }
 }
+
+export const checkoutClicked = (totalPrice) => {
+    return {
+        type: actionTypes.CHECKOUT_CLICKED,
+        totalPrice: totalPrice
+    }
+}
+
+export const checkoutNotClicked = () => {
+    return {
+        type: actionTypes.CHECKOUT_NOT_CLICKED,
+        
+    }
+}

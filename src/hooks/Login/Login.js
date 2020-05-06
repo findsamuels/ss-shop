@@ -15,6 +15,7 @@ const Login = (props) => {
 event.preventDefault()
         dispatch(actionCreators.closeLogin())
         dispatch(actionCreators.toggleBackdrop())
+        dispatch(actionCreators.startAuth())
     }
 
     const closeLogin = () => {

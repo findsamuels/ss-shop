@@ -27,10 +27,13 @@ addToCart,
 }from'./cart/actions'
 
 export{
-goToCheckout
+goToCheckout,
+checkoutClicked,
+checkoutNotClicked
 }from './checkout/action'
 
 export {
 startAuth,
-removeAuth
+removeAuth,
+logout
 }from './auth/action'

@@ -7,14 +7,17 @@ import Button from '../../Components/Button/Button'
 import { useSelector, useDispatch } from 'react-redux'
 import * as actionCreators from '../../store/index'
 const Register = (props) => {
-  
+    const checkoutClicked = useSelector(state => state.checkoutReducer.checkoutClicked)
     const dispatch = useDispatch()
     const history = useHistory()
     const register = (event) => {
         event.preventDefault()
         dispatch(actionCreators.startAuth())
-
+history.push('/')
+        if (checkoutClicked){
             history.push('/checkout')
+        }
+            
         
     }
 const openLogin = () => {
