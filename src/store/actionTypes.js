@@ -33,6 +33,8 @@ export const CHECKOUT_NOT_CLICKED = 'CHECKOUT_NOT_CLICKED '
 
 export const IS_AUTH = 'IS_AUTH'
 export const REMOVE_AUTH = 'REMOVE_AUTH'
+export const CHECK_AUTH = 'CHECK_AUTH'
+
 
 export const OPEN_PAYMENT = 'OPEN_PAYMENT'
 export const CLOSE_PAYMENT = 'CLOSE_PAYMENT'

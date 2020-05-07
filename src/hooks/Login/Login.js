@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '../../Components/Modal/Modal'
 import Form from '../../Components/Form/Form'
 import FormElement from '../../Components/Form/FormElement/FormElement'
@@ -11,11 +11,45 @@ const Login = (props) => {
     const dispatch = useDispatch()
     const showLogin = useSelector(state => state.uiReducer.showLogin)
 
+    const [user, changeUser] = useState({
+        username:{
+            type: 'text',
+            value: '',
+            placeholder:'Username',
+            elementType: 'input'
+        },
+        password: {
+            type: 'password',
+            value: '',
+            placeholder: 'Password',
+            elementType: 'input'
+        }
+    })
+
     const login = (event) => {
 event.preventDefault()
         dispatch(actionCreators.closeLogin())
         dispatch(actionCreators.closeBackdrop())
-        dispatch(actionCreators.startAuth())
+
+        dispatch(actionCreators.startAuth(user.username.value, user.password.value))
+      
+    }
+
+    const getUser = (id, event ) => {
+        let value = event.target.value
+        const updatedUser = {
+            ...user,
+            [id]:{
+                ...user[id],
+                    value: value
+                
+                
+            }
+        }
+
+    
+        changeUser(updatedUser)
+        console.log(user)
     }
 
     const closeLogin = () => {
@@ -29,11 +63,31 @@ event.preventDefault()
         dispatch(actionCreators.closeBackdrop())
     }
 
+    let usersArray = []
+    for (let myUser in user){
+        usersArray.push({
+            id: myUser,
+            config: user[myUser]
+        })
+    }
+
+    let mappedUser = usersArray.map(users => {
+        return(
+            <FormElement 
+                key={users.id}
+            id={users.id} 
+            elementType={users.config.elementType} 
+            onChange={(event) => getUser(users.id,event)} 
+            value={users.config.value}
+             type={users.config.type} 
+             placeholder={users.config.placeholder} />
+        )
+    })
+
     return(
         <Modal close={closeLogin} title='Log in here' showLogin={showLogin}>
            <Form>
-                <FormElement elementType='input' type='email' placeholder='Email address' />
-                <FormElement elementType='input' type='password' placeholder='Password' />
+               {mappedUser}
                 <Button onClick={login} btnStyle='boxShadow' btnColor='primary'>Log in</Button>
                 <p className={classes.registerLink}>not registered? <NavLink onClick={goToRegister} to='/register'>register</NavLink></p>
            </Form>

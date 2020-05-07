@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row } from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import ItemListContainer from '../../ItemListContainer/ItemListContainer'
 import * as actionCreators from '../../../store/index'
 import classes from './ShopItems.module.scss'
-
+import Button from '../../../Components/Button/Button'
 const ShopItems = (props) => {
 const dispatch = useDispatch()
 
-
+const [maxDisplay, setMaxDisplay] = useState(3)
   
    
     
@@ -54,6 +54,9 @@ const dispatch = useDispatch()
         dispatch(actionCreators.getItemValue(value, itemId))
 
     }
+    const viewMore = () => {
+        setMaxDisplay(maxDisplay +3)
+    }
     let itemArray = []
 
         for (let item in shopItem) {
@@ -79,8 +82,13 @@ const dispatch = useDispatch()
         itemArray = filteredCategory
         console.log(categoryToFilter)
     }
+    let showViewMore = null
 
-    const showItems = itemArray.map(myItems => {
+    if(itemArray.length > maxDisplay){
+        showViewMore = (<Button btnColor='primary' onClick={viewMore}>View more...</Button>)
+    }
+
+    const showItems = itemArray.slice(0, maxDisplay).map(myItems => {
         let selectedQuantity = myItems.config.quantity.map(itemQ => {
           
             return(
@@ -110,7 +118,13 @@ const dispatch = useDispatch()
 
    
 
-    return <Row className={classes.ShopItems}>{showItems}</Row>
+    return <Row className={classes.ShopItems}>
+        {showItems}
+        <div className={classes.ViewMore}>
+            {showViewMore}
+        </div>
+       
+        </Row>
 
 
     

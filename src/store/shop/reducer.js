@@ -3,7 +3,12 @@ import utilityObject from '../../Utility/Utility'
 import shopImg from '../../assets/img/bedroom.png'
 import gardenImg from '../../assets/img/garden.png'
 import bathroomimg from '../../assets/img/bathroom.png'
-
+import shirtimg from '../../assets/img/shirt.png'
+import mirrorimg from '../../assets/img/mirror.png'
+import runnersimg from '../../assets/img/runners.png'
+import tableimg from '../../assets/img/kitchen.png'
+import accessoriesImg from '../../assets/img/accessories.png'
+import CouchImg from '../../assets/img/livingRoom.png'
 const initialState = {
 
     inputEntered: false,
@@ -14,9 +19,9 @@ const initialState = {
     shopItem: {
         bed1: {
             category: 'Item 1',
-            img: shopImg,
-            title: 'Deluxe Bed',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            img: shirtimg,
+            title: 'T-Shirt',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 45.32,
             selectedValue: 1,
             addedToCart: false,
@@ -25,9 +30,9 @@ const initialState = {
         },
         bed2: {
             category: 'Item 1',
-            img: shopImg,
-            title: 'Single Bed',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            img: runnersimg,
+            title: 'Workout Runners',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 98.01,
             selectedValue: 1,
             addedToCart: false,
@@ -39,7 +44,7 @@ const initialState = {
             category: 'Item 1',
             img: shopImg,
             title: 'Double Bed',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 78.65,
             addedToCart: false,
             selectedValue: 1,
@@ -50,9 +55,9 @@ const initialState = {
 
         mirror: {
             category: 'Item 2',
-            img: gardenImg,
+            img: mirrorimg,
             title: 'Mirror',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 45.32,
             selectedValue: 1,
             addedToCart: false,
@@ -61,9 +66,9 @@ const initialState = {
         },
         table: {
             category: 'Item 2',
-            img: gardenImg,
+            img: tableimg,
             title: 'Table',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 98.01,
             selectedValue: 1,
             addedToCart: false,
@@ -74,8 +79,8 @@ const initialState = {
         lawnmower: {
             category: 'Item 2',
             img: gardenImg,
-            title: 'Lawnmower',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            title: 'Garden Mat',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 78.65,
             addedToCart: false,
             selectedValue: 1,
@@ -87,7 +92,7 @@ const initialState = {
             category: 'Item 3',
              img: bathroomimg,
              title: 'ToiletTowel',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 45.32,
             selectedValue: 1,
             addedToCart: false,
@@ -96,9 +101,9 @@ const initialState = {
         },
         shower: {
             category: 'Item 3',
-            img: bathroomimg,
-            title: 'Shower',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            img: accessoriesImg,
+            title: 'Beauty Accessories',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 98.01,
             selectedValue: 1,
             addedToCart: false,
@@ -108,9 +113,9 @@ const initialState = {
         },
         bath: {
             category: 'Item 3',
-            img: bathroomimg,
-            title: 'Bath',
-            description: 'Great bed for a great night, you will sleep and wake up feeling energized well get it today at a good price',
+            img: CouchImg,
+            title: 'Living room couch',
+            description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 78.65,
             addedToCart: false,
             selectedValue: 1,

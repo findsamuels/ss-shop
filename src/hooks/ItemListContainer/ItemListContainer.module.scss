@@ -1,13 +1,13 @@
 @import '../../scss/main.scss';
 
 .ItemListContainer{
-
+margin: 1rem 0;
 }
 
 
 .ItemList{
-     margin: 5rem 0;
-    max-height: 42rem;
+     margin: 1rem auto;
+
     text-align: start;
     img{
         width: 100%;
@@ -22,4 +22,5 @@
     text-align: center;
     font-weight: bold;
     font-size: 2rem;
+    
 }

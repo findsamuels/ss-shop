@@ -7,7 +7,8 @@ import Button from '../../Components/Button/Button'
 const ControlComponent = (props) => {
 
   const dispatch = useDispatch()
-  const auth = useSelector(state => state.authReducer.auth)
+  const auth = useSelector(state => state.authReducer.auth != null)
+  const username = useSelector(state => state.authReducer.username)
   const amountInCart = useSelector(state => state.cartReducer.amountInCart)
   const toggleCart = () => {
     dispatch(actionCreators.toggleCart())
@@ -26,7 +27,7 @@ const ControlComponent = (props) => {
   }
   let cartAmount = []
 
-  let showLogIn = (auth ? <p className={classes.loggedInText}>Welcome Customer <span><Button onClick={logout} btnColor='secondary'>Log out</Button></span></p>  : <Button onClick={showLogin} btnColor='danger'>Log in</Button>)
+  let showLogIn = (auth ? <p className={classes.loggedInText}>Welcome {username} <span><Button onClick={logout} btnColor='secondary'>Log out</Button></span></p>  : <Button onClick={showLogin} btnColor='danger'>Log in</Button>)
 
  cartAmount.push(classes.cartAmount)
   if(amountInCart < 1){

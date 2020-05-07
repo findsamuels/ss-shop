@@ -38,5 +38,6 @@ checkoutNotClicked
 export {
 startAuth,
 removeAuth,
-logout
+logout,
+checkAuth
 }from './auth/action'

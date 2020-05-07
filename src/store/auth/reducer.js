@@ -3,20 +3,30 @@ import * as actionTypes from '../actionTypes'
 import utilityObject from '../../Utility/Utility'
 
 const initialState = {
-    auth: false
+    auth: null,
+    username: ''
 }
 
 const isAuth = (state, action) => {
-
+console.log(action.auth)
     return utilityObject(state, {
-        auth: state.auth = true
+        auth: action.token,
+        username: action.username
     })
 }
 
 const removeAuth = (state, action) => {
-
+    
     return utilityObject(state, {
-        auth: state.auth = false
+       auth: null
+    })
+}
+
+const checkAuth = (state, action) => {
+    
+    return utilityObject(state, {
+        auth: action.token,
+        username: action.username
     })
 }
 
@@ -27,6 +37,8 @@ export const authReducer = (state = initialState, action) => {
             return isAuth(state, action)
         case actionTypes.REMOVE_AUTH:
             return removeAuth(state, action)
+        case actionTypes.CHECK_AUTH:
+            return checkAuth(state, action)
         default:
             return state
     }

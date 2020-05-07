@@ -37,3 +37,11 @@ color: $color-primary;
     } 
     
     } 
+
+    .half{
+        width: 45%;
+
+        @include respond(largeTablet){
+            width: 100%;
+        }
+    }

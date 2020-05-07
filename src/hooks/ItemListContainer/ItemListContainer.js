@@ -8,13 +8,13 @@ const ItemListContainer = (props) => {
    
     return(
         
-        <Col key={props.id} className={classes.ItemList} md="4">
+        <Col key={props.id}  md="4">
 
-            <Card >
+            <Card className={classes.ItemList} >
                     <Card.Img  src={props.itemImg} alt="bedroom" />
                     <Card.Body>
                         <Card.Title className={classes.Title}>{props.itemTitle}</Card.Title>
-                        <Card.Title>{props.itemDescription}</Card.Title>
+                        <Card.Title >{props.itemDescription.substr(0, 150)}</Card.Title>
                         <Card.Text>Select Quantity</Card.Text>
                     <FormElement onChange={props.selectQuantity} value={props.selectedValue}  elementType='select'>
     {props.options}
