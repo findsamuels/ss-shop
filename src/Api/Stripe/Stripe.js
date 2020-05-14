@@ -50,10 +50,10 @@ setOrderPlaced(false);
       showPaymentBox =  <React.Fragment>
         <div className={classes.checkoutItemContainer}>
           <h4 className={classes.HeaderLeft}>Delivering to </h4>
-          <p>Street Address: {orderDetails.street}</p>
-          <p>City: {orderDetails.city}</p>
-          <p>Country: {orderDetails.country}</p>
-          <p>Eircode: {orderDetails.eircode}</p>
+          <p>{orderDetails.street}</p>
+          <p>{orderDetails.city}</p>
+          <p>{orderDetails.country}</p>
+          <p>{orderDetails.eircode}</p>
         </div>
 
         <h4 className={classes.HeaderLeft}>Subtotal: <span className={classes.TotalPrice}> ${orderDetails.totalPrice}</span></h4>
