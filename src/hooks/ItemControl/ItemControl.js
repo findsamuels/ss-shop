@@ -54,12 +54,12 @@ const dispatch = useDispatch()
                     <FormElement onChange={ getTitle} value={itemValue}  elementType='input' placeholder='Search product name' type='text' />
 
                     <div className={classes.itemControl}></div>
-                    <FormElement elementType='select'>
+                    {/* <FormElement elementType='select'>
                         <option >Price: Low To High</option>
                         <option >Price: High To Low</option>
                         <option >Relevant</option>
                         <option >Newest</option>
-                    </FormElement>
+                    </FormElement> */}
                    
                     <FormElement onChange={filterCategories} value={categoryValue} elementType='select'>
                         <option >All</option>

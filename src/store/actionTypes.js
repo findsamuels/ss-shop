@@ -32,11 +32,21 @@ export const CHECKOUT_CLICKED = 'CHECKOUT_CLICKED '
 export const CHECKOUT_NOT_CLICKED = 'CHECKOUT_NOT_CLICKED '
 
 export const IS_AUTH = 'IS_AUTH'
+export const AUTH_FAILED = 'AUTH_FAILED'
+export const START_AUTH = 'START_AUTH'
 export const REMOVE_AUTH = 'REMOVE_AUTH'
 export const CHECK_AUTH = 'CHECK_AUTH'
+
+export const USER_RETRIEVED = 'USER_RETRIEVED'
+
+
+export const CLEAR_CART = "CLEAR_CART";
+
 
 
 export const OPEN_PAYMENT = 'OPEN_PAYMENT'
 export const CLOSE_PAYMENT = 'CLOSE_PAYMENT'
+export const GETTING_ORDER = 'GETTING_ORDER'
+export const ORDER_RETREIVED = 'ORDER_RETREIVED'
 
 export const SORT = 'SORT_ITEMS'

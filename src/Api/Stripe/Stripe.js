@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Stripe.module.scss";
 import Button from '../../Components/Button/Button'
 import Modal from "../../Components/Modal/Modal";
@@ -14,8 +14,12 @@ import {Elements,CardElement, PaymentRequestButtonElement} from "@stripe/react-s
 const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
 const Stripe = () => {
 
+  const [orderPlaced, setOrderPlaced] = useState(false)
+
   const history = useHistory()
+  const orderDetails = useSelector(state => state.orderReducer.orderDetails)
     const totalPrice = useSelector((state) => state.checkoutReducer.totalPrice);
+  const loading = useSelector((state) => state.checkoutReducer.loading);
      const showPayment = useSelector((state) => state.uiReducer.showPayment);
 const dispatch = useDispatch()
     const closePayment = () => {
@@ -24,20 +28,35 @@ dispatch(actionCreators.closePayment())
     }
 
     const confirmPayment = (event) => {
-event.preventDefault();
-      dispatch(actionCreators.closePayment());
-      dispatch(actionCreators.closeBackdrop());
 
-      history.push('/')
+// let emptycart = []
+// // dispatch(actionCreators.clearCart(emptycart));
+
+
+setOrderPlaced(true);
+setTimeout(() => {
+                   dispatch(actionCreators.closePayment());
+                   dispatch(actionCreators.closeBackdrop());
+                   history.push('/')
+setOrderPlaced(false);
+                 },2000)
+     
     };
 
-    return (
-      <Modal
-        showPayment={showPayment}
-        close={closePayment}
-        title="Secure Payment"
-      >
-        <p>Subtotal: ${totalPrice}</p>
+  let showPaymentBox =  <p>Waiting for order</p>; 
+
+  if (orderDetails != null){
+    (
+      showPaymentBox =  <React.Fragment>
+        <div className={classes.checkoutItemContainer}>
+          <h4 className={classes.HeaderLeft}>Delivering to </h4>
+          <p>Street Address: {orderDetails.street}</p>
+          <p>City: {orderDetails.city}</p>
+          <p>Country: {orderDetails.country}</p>
+          <p>Eircode: {orderDetails.eircode}</p>
+        </div>
+
+        <h4 className={classes.HeaderLeft}>Subtotal: <span className={classes.TotalPrice}> ${orderDetails.totalPrice}</span></h4>
 
         <div className={classes.Stripe}>
           <h4>Card details</h4>
@@ -56,6 +75,19 @@ event.preventDefault();
         >
           Confirm
         </Button>
+      </React.Fragment>
+    );
+    }
+
+
+
+    return (
+      <Modal
+        showPayment={showPayment}
+        close={closePayment}
+        title="Secure Payment"
+      >
+        {showPaymentBox}
       </Modal>
     );
 }

@@ -12,13 +12,22 @@ import Checkout from './hooks/Checkout/Checkout';
 import Login from './hooks/Login/Login';
 import Stripe from './Api/Stripe/Stripe';
 import { useDispatch } from 'react-redux';
-import { checkAuth } from './store';
 
+import * as actionCreators from './store/index'
 const App = () => {
 const dispatch = useDispatch()
   useEffect(() => {
-    
-    dispatch(checkAuth(localStorage.getItem('token'), localStorage.getItem('username')))
+   let token =  localStorage.getItem("token")
+   let username = localStorage.getItem("username");
+    dispatch(actionCreators.startCheckAuth(token, username));
+    // let cartItems = JSON.parse(localStorage.getItem('cartItems'))
+    // let itemId = localStorage.getItem('itemId')
+    // let amountInCart = localStorage.getItem('amountInCart')
+    // if (cartItems != null && itemId != null && amountInCart !== 0){
+    //   dispatch(actionCreators.addToCart(cartItems, itemId, amountInCart))
+    // }
+
+   
   },[])
   
   return (

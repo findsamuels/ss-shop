@@ -100,7 +100,7 @@ const [maxDisplay, setMaxDisplay] = useState(3)
         
         return(
             <ItemListContainer
-                key={myItems.id}
+                
             id={myItems.id}
             itemTitle={myItems.config.title}
             itemDescription={myItems.config.description}

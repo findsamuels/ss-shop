@@ -15,6 +15,24 @@ border-bottom: $size solid $color ;
    
    
 }
+@mixin headerLeft{
+    font-weight: bolder;
+    text-align: start;
+    padding: .5rem 0;
+    text-transform: uppercase;
+}
+@mixin headerRight{
+    font-weight: bolder;
+    text-align: right;
+      padding: .5rem 0;
+    text-transform: uppercase;
+}
+@mixin headerCentre{
+    font-weight: bolder;
+    text-align: center;
+      padding: .5rem 0;
+    text-transform: uppercase;
+}
 @mixin linkText{
     color: $color-blue;
     cursor: pointer;

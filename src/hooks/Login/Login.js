@@ -12,10 +12,10 @@ const Login = (props) => {
     const showLogin = useSelector(state => state.uiReducer.showLogin)
 
     const [user, changeUser] = useState({
-        username:{
-            type: 'text',
+        email:{
+            type: 'email',
             value: '',
-            placeholder:'Username',
+            placeholder:'Email',
             elementType: 'input'
         },
         password: {
@@ -31,7 +31,9 @@ event.preventDefault()
         dispatch(actionCreators.closeLogin())
         dispatch(actionCreators.closeBackdrop())
 
-        dispatch(actionCreators.startAuth(user.username.value, user.password.value))
+        
+
+        dispatch(actionCreators.login(user.email.value, user.password.value))
       
     }
 
@@ -74,7 +76,6 @@ event.preventDefault()
     let mappedUser = usersArray.map(users => {
         return(
             <FormElement 
-                key={users.id}
             id={users.id} 
             elementType={users.config.elementType} 
             onChange={(event) => getUser(users.id,event)} 

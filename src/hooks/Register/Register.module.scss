@@ -13,28 +13,7 @@ margin: 2rem auto;
 }
 
 
-.CountryClass{
-    
-    margin: .5rem 0;
-padding: .5rem;
-outline: none;
-@include border(.1rem, $color-grey);
-color: $color-primary;
-width: 45%;
 
-        @include respond(largeTablet){
-            width: 100%;
-        }
-&:focus{
-@include border(.1rem, $color-green);
-}
-   .options{
-       &:hover{
-        background-color: $color-primary;
-    } 
-    
-    } 
-}
 
 .twoColDiv{
       @include twoCol;

@@ -18,3 +18,13 @@
     color: $color-darkGrey;
   
 }
+
+.HeaderLeft{
+    @include headerLeft
+}
+
+.TotalPrice{
+   color: $color-primary;
+   padding: 1rem ;
+   text-align: center;
+}

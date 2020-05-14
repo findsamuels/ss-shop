@@ -5,7 +5,7 @@ import utilityObject from '../../Utility/Utility'
 const initialState = {
    
     cartItemArray: [],
-    ItemId: '',
+    ItemId: null,
    amountInCart: 0,
     itemQuantity: 1,
     itemPrice: 0,
@@ -27,7 +27,8 @@ const addToCart = (state, action) => {
     } 
     return utilityObject(state, {
         cartItemArray: itemArray,  
-        amountInCart: action.amountInCart
+        amountInCart: action.amountInCart,
+        
     })
 
 }
@@ -44,7 +45,16 @@ const removeFromCart = (state, action) => {
     return utilityObject(state, {
         cartItemArray: filteredItem,
         amountInCart: action.amountInCart
+        
     })
+
+}
+
+const clearCart = (state, action) => {
+      return utilityObject(state, {
+        cartItemArray: action.emptyCart,
+        amountInCart: 0
+      });
 
 }
 
@@ -55,6 +65,8 @@ export const cartReducer = (state = initialState, action) => {
             return addToCart(state, action)
         case actionTypes.REMOVE_FROM_CART:
             return removeFromCart(state, action)
+            case actionTypes.CLEAR_CART:
+            return clearCart(state, action)
            
             
     

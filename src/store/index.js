@@ -26,7 +26,8 @@ filterCategories
 
 export{
 addToCart,
-    removeFromCart
+    removeFromCart,
+    clearCart
 }from'./cart/actions'
 
 export{
@@ -36,8 +37,14 @@ checkoutNotClicked
 }from './checkout/action'
 
 export {
-startAuth,
-removeAuth,
-logout,
-checkAuth
-}from './auth/action'
+  login,
+  register,
+  removeAuth,
+  logout,
+  startCheckAuth,
+  autoLogout,
+} from "./auth/action";
+
+export{
+getOrderDetails
+} from './order/action'

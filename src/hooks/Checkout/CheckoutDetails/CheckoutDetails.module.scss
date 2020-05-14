@@ -21,3 +21,26 @@ h4{
     padding: 1rem 0;
 }
 }
+
+.CountryClass{
+    
+    margin: .5rem 0;
+padding: .5rem;
+outline: none;
+@include border(.1rem, $color-grey);
+color: $color-primary;
+width: 100%;
+&:focus{
+@include border(.1rem, $color-green);
+}
+   .options{
+       &:hover{
+        background-color: $color-primary;
+    } 
+    
+    } 
+}
+
+.HeaderLeft{
+    @include headerLeft
+}

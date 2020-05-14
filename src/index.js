@@ -8,9 +8,26 @@ import {faPortrait, faShoppingCart, faSearch, faPersonBooth, faBars, faTimes, fa
 import {Provider} from 'react-redux'
 import * as reducerTypes from './store/reducerIndex'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+
+import * as firebase from "firebase/app";
+
+import "firebase/analytics";
+
 import {BrowserRouter} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZzh8XT-QDBqwMZIPy2Qil1ow4idiCDUs",
+  authDomain: "ss-shops.firebaseapp.com",
+  databaseURL: "https://ss-shops.firebaseio.com",
+  projectId: "ss-shops",
+  storageBucket: "ss-shops.appspot.com",
+  messagingSenderId: "295131639773",
+  appId: "1:295131639773:web:ae10c29a7c7049b6e15034",
+  measurementId: "G-TB8V78ZVEM",
+};
+firebase.initializeApp(firebaseConfig);
 
 library.add(faPortrait, faShoppingCart, faSearch, faPersonBooth, faBars, faTimes, faTrash);
 
@@ -19,7 +36,8 @@ uiReducer: reducerTypes.UiReducer,
   shopItemReducer: reducerTypes.shopItemReducer,
   cartReducer: reducerTypes.cartReducer,
   checkoutReducer: reducerTypes.checkoutReducer,
-  authReducer: reducerTypes.authReducer
+  authReducer: reducerTypes.authReducer,
+  orderReducer: reducerTypes.orderReducer
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
