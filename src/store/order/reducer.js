@@ -3,16 +3,23 @@ import utilityObject from '../../Utility/Utility'
 
 const initialState = {
 orderDetails: null,
-loading: true
+loading: false
 }
 
-const gettingOrder = (state, action) => {
+const orderStart = (state, action) => {
     return utilityObject(state, {
         loading: true
     })
 }
 
-const orderRetrieved = (state, action) => {
+const orderSuccess = (state, action) => {
+    return utilityObject(state, {
+        orderDetails: action.orderDetails,
+        loading: false
+    })
+}
+
+const orderFailed = (state, action) => {
     return utilityObject(state, {
         orderDetails: action.orderDetails,
         loading: false
@@ -22,10 +29,12 @@ const orderRetrieved = (state, action) => {
 export const orderReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case actionTypes.ORDER_RETREIVED:
-            return orderRetrieved(state, action)    
-        case actionTypes.GETTING_ORDER:
-            return gettingOrder(state, action)
+        case actionTypes.ORDER_START:
+            return orderStart(state, action)    
+        case actionTypes.ORDER_SUCCESS:
+            return orderSuccess(state, action)
+        case actionTypes.ORDER_FAILED:
+            return orderFailed(state, action)
         default:
            return state
     }

@@ -27,7 +27,9 @@ const ControlComponent = (props) => {
   }
   let cartAmount = []
 
-  let showLogIn = (auth ? <p className={classes.loggedInText}>Welcome {username} <span><Button onClick={logout} btnColor='secondary'>Log out</Button></span></p>  : <Button onClick={showLogin} btnColor='danger'>Log in</Button>)
+  let showLogIn = (auth ? <div className={classes.loggedInText}>
+    <p >Welcome {username} <span style={{ padding: '0 1rem' }}><Button onClick={logout} btnColor='secondary'>Log out</Button></span></p> 
+    </div> : <Button onClick={showLogin} btnColor='danger'>Log in</Button>)
 
  cartAmount.push(classes.cartAmount)
   if(amountInCart < 1){

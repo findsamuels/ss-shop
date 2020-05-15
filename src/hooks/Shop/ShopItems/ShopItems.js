@@ -18,11 +18,11 @@ const [maxDisplay, setMaxDisplay] = useState(3)
     const categorySelected = useSelector(state => state.shopItemReducer.categorySelected)
     
     const inputEntered = useSelector(state => state.shopItemReducer.inputEntered)
-    const amountInCart = useSelector(state => state.cartReducer.amountInCart)
+    let amountInCart = useSelector(state => state.cartReducer.amountInCart)
 
     const addToCart = (itemImg, itemTitle, itemId, itemPrice, itemValue, addedToCart) => {
 
-        let amountInCarts = 1
+        let amountInCarts = 0
         let newItemPrice = itemPrice * itemValue
  let cartItem = itemId
         cartItem = {
@@ -35,7 +35,7 @@ const [maxDisplay, setMaxDisplay] = useState(3)
         }
 
         if (!addedToCart){
-            amountInCarts = amountInCart + amountInCarts
+            amountInCarts = amountInCart += 1 
 
             dispatch(actionCreators.updateShopPurchasable(itemId))
 

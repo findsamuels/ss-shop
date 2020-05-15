@@ -16,7 +16,7 @@ export {
 export{
 searchShopItem,
 updateShopPurchasable,
-removeShopItem,
+resetShop,
 setShopItems,
 resetShopItem,
 getItemValue,
@@ -47,4 +47,9 @@ export {
 
 export{
 getOrderDetails
+} from './orderItems/action'
+
+export {
+  orderStart
 } from './order/action'
+

@@ -30,4 +30,21 @@
 
 .loggedInText{
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    p{
+        @include respond(phone){
+ padding: .5rem 0;
+        }
+       
+    }
+    button{
+         @include respond(phone){
+ margin: .5rem 0;
+        }
+    }
 }

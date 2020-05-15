@@ -159,8 +159,16 @@ const updateShopPurchasable = (state, action) => {
     })
 }
 
-const removeShopItem = (state, action) => {
+const resetShop = (state, action) => {
+   let resetShop = JSON.parse(localStorage.getItem('shopItem'))
+    console.log(resetShop)
 
+    return utilityObject(state, {
+        shopItem: resetShop,
+        
+
+
+    })
 
 }
 
@@ -216,8 +224,8 @@ export const shopItemReducer = (state = initialState, action) => {
             return searchShopItems(state, action)
             case actionTypes.UPDATE_SHOP_PURCHASABLE:
                 return updateShopPurchasable(state,action)
-        case actionTypes.REMOVE_SHOP_ITEM:
-            return removeShopItem(state, action)
+        case actionTypes.RESET_SHOP:
+            return resetShop(state, action)
             case actionTypes.RESET_SHOP_ITEM:
             return resetShopItem(state, action)
             case actionTypes.GET_ITEM_VALUE:

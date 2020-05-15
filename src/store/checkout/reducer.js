@@ -9,7 +9,8 @@ const initialState = {
 const goToCheckout = (state, action) => {
 
     return utilityObject(state, {
-        totalPrice: action.totalPrice
+        totalPrice: action.totalPrice,
+        
     })
 }
 

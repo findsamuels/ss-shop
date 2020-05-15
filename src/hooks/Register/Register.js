@@ -9,7 +9,7 @@ import * as actionCreators from '../../store/index'
 import {Redirect} from 'react-router-dom'
 
 const Register = (props) => {
-    const checkoutClicked = useSelector(state => state.checkoutReducer.checkoutClicked)
+  const checkoutClicked = useSelector(state => state.checkoutReducer.checkoutClicked)
      const auth = useSelector((state) => state.authReducer.auth != null);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -77,9 +77,11 @@ const Register = (props) => {
         
       console.log(userDetails.username.value)
 
-     
-history.push('/')
-        if (checkoutClicked){
+      if (!checkoutClicked){
+        history.push('/')
+      }
+
+        else if (checkoutClicked){
             history.push('/checkout')
         }
   
@@ -125,32 +127,39 @@ let registerId = ''
       
     )
   })
+ 
 
-
-  let registerPage = <Redirect to='/'/>
-if(!auth){
-registerPage = <div className={classes.Register}>
-        <Form size="medium">
-          <div className={classes.TitleBox}>
-            <h2>Register here</h2>
-            <p>
-              already registered?{" "}
-              <span onClick={openLogin} className={classes.linkText}>
-                Log in
+  let registerPage = (
+    <div className={classes.Register}>
+      <Form size="medium">
+        <div className={classes.TitleBox}>
+          <h2>Register here</h2>
+          <p>
+            already registered?{" "}
+            <span onClick={openLogin} className={classes.linkText}>
+              Log in
               </span>
-            </p>
-          </div>
-          
-          {userForm}
-            
-       
-          <div className={classes.buttonDiv}>
-      <Button onClick={register} btnStyle="boxShadow" btnColor="primary">
-              Register
+          </p>
+        </div>
+
+        {userForm}
+
+
+        <div className={classes.buttonDiv}>
+          <Button onClick={register} btnStyle="boxShadow" btnColor="primary">
+            Register
             </Button>
-          </div>
-        </Form>
-      </div>
+        </div>
+      </Form>
+    </div>)
+
+
+  if (auth ) {
+    registerPage = <Redirect to='/' />
+  }
+  
+else if(auth && checkoutClicked){
+  registerPage = <Redirect to='/checkout' />
 }
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '../../Components/Modal/Modal'
 import { useSelector, useDispatch} from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 const Cart = (props) => {
 
 const dispatch = useDispatch()
-   
+    const [cartClicked, setCartClicked] = useState(false)
     const showCart = useSelector(state => state.uiReducer.showCart)
     const cartItemArray = useSelector(state => state.cartReducer.cartItemArray )
     const itemInCart = useSelector(state => state.cartReducer.itemInCart)
@@ -39,6 +39,7 @@ const dispatch = useDispatch()
             }
         }
 
+
             dispatch(actionCreators.resetShopItem(updatedShop))
         dispatch(actionCreators.removeFromCart(id, shopItem, amountInCarts))
         dispatch(actionCreators.goToCheckout(totalPrice))
@@ -53,9 +54,12 @@ const dispatch = useDispatch()
         console.log(itemInCart)
     }
     const goToCheckout = (totalPrice) => {
+
+        setCartClicked(true)
+
         dispatch(actionCreators.closeCart())
         dispatch(actionCreators.closeBackdrop())
-        dispatch(actionCreators.goToCheckout(totalPrice))
+        dispatch(actionCreators.goToCheckout(totalPrice, cartClicked))
         dispatch(actionCreators.checkoutClicked())
     }
     let totalPrices = 0

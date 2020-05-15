@@ -40,10 +40,10 @@ export const resetShopItem = (resetShopItem) => {
     }
 }
 
-export const removeShopItem = (itemId) => {
+export const resetShop = (itemId) => {
     return {
-        type: actionTypes.REMOVE_SHOP_ITEM,
-        itemId: itemId,
+        type: actionTypes.RESET_SHOP,
+        
 
     }
 

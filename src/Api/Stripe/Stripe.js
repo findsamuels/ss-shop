@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as actionCreators from '../../store/index';
 import { loadStripe } from "@stripe/stripe-js";
 import {Elements,CardElement, PaymentRequestButtonElement} from "@stripe/react-stripe-js";
+import { startOrder } from "../../store/order/action";
 
 
 
@@ -17,10 +18,11 @@ const Stripe = () => {
   const [orderPlaced, setOrderPlaced] = useState(false)
 
   const history = useHistory()
-  const orderDetails = useSelector(state => state.orderReducer.orderDetails)
-    const totalPrice = useSelector((state) => state.checkoutReducer.totalPrice);
-  const loading = useSelector((state) => state.checkoutReducer.loading);
+  const orderDetails = useSelector(state => state.orderItemReducer.orderDetails)
      const showPayment = useSelector((state) => state.uiReducer.showPayment);
+  const orderedItems = useSelector((state) => state.orderReducer.orderDetails != null);
+  const loading = useSelector((state) => state.orderReducer.loading);
+  const cartItemArray = useSelector((state) => state.cartReducer.cartItemArray)
 const dispatch = useDispatch()
     const closePayment = () => {
 dispatch(actionCreators.closePayment())
@@ -29,23 +31,38 @@ dispatch(actionCreators.closePayment())
 
     const confirmPayment = (event) => {
 
-// let emptycart = []
-// // dispatch(actionCreators.clearCart(emptycart));
+let emptycart = []
 
 
-setOrderPlaced(true);
-setTimeout(() => {
-                   dispatch(actionCreators.closePayment());
-                   dispatch(actionCreators.closeBackdrop());
-                   history.push('/')
-setOrderPlaced(false);
-                 },2000)
+      dispatch(startOrder(orderDetails, cartItemArray))
+      dispatch(actionCreators.clearCart(emptycart));
+      if (!loading){
+        setOrderPlaced(true)
+        dispatch(actionCreators.resetShop())
+        setTimeout(() => {
+          dispatch(actionCreators.closePayment());
+          dispatch(actionCreators.closeBackdrop());
+          history.push('/')
+        }, 2000)
+        
+      }
+
+
+
+
      
     };
 
   let showPaymentBox =  <p>Waiting for order</p>; 
 
-  if (orderDetails != null){
+  if (orderPlaced && orderDetails != null){
+    showPaymentBox = <div>
+      <p><span style={{fontWeight: 'bold'}}>Thank you for your order!! </span><br></br>Please check your email for confirmation</p>
+      
+    </div> 
+  }
+
+  else if (!orderPlaced && orderDetails != null){
     (
       showPaymentBox =  <React.Fragment>
         <div className={classes.checkoutItemContainer}>

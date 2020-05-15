@@ -1,9 +1,10 @@
 import * as actionTypes from '../actionTypes'
 
-export const goToCheckout = (totalPrice) => {
+export const goToCheckout = (totalPrice, cartClicked) => {
     return{
         type: actionTypes.GO_TO_CHECKOUT,
-        totalPrice: totalPrice
+        totalPrice: totalPrice,
+        cartClicked: cartClicked
     }
 }
 

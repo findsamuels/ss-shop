@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Modal from '../../Components/Modal/Modal'
 import Form from '../../Components/Form/Form'
+
 import FormElement from '../../Components/Form/FormElement/FormElement'
 import Button from '../../Components/Button/Button'
 import classes from './Login.module.scss'
@@ -9,8 +10,9 @@ import * as actionCreators from '../../store/index'
 import { NavLink } from 'react-router-dom'
 const Login = (props) => {
     const dispatch = useDispatch()
+  
     const showLogin = useSelector(state => state.uiReducer.showLogin)
-
+    const checkoutClicked = useSelector(state => state.checkoutReducer.checkoutClicked)
     const [user, changeUser] = useState({
         email:{
             type: 'email',
@@ -34,6 +36,10 @@ event.preventDefault()
         
 
         dispatch(actionCreators.login(user.email.value, user.password.value))
+
+        if (checkoutClicked) {
+            props.history.push('/checkout')
+        }
       
     }
 

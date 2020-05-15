@@ -42,7 +42,7 @@ dispatch(startAuth())
     axios.post(url,authData)
     .then(res => {
         console.log(res.data)
-        dispatch(login(username,email, password))   
+        dispatch(login(email, password))   
     })
     .catch(err => {
         dispatch(authFailed())
@@ -75,7 +75,7 @@ export const login = (email, password) => {
             })
             .catch(err => {
                 dispatch(authFailed())
-                console.log(err.data)
+                console.log(err.message)
             })
     }
 }
@@ -115,7 +115,7 @@ export const autoLogout = () => {
         
             setTimeout(() => {
                 dispatch(logout());
-            }, expirationTime * 100)
+            }, expirationTime * 1000)
         
     }
 }

@@ -4,7 +4,7 @@ import * as actionType from '../actionTypes'
 
 export const addToCart = (cartItems, itemId, amountInCart) => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
-    localStorage.setItem('itemId', itemId)
+    localStorage.setItem('itemId', JSON.stringify(itemId))
     localStorage.setItem('amountInCart', amountInCart)
     return {
         type: actionType.ADD_TO_CART,
