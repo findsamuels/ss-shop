@@ -6,6 +6,7 @@ import Form from '../../../Components/Form/Form'
 import FormElement from '../../../Components/Form/FormElement/FormElement'
 import * as actionCreators from '../../../store/index'
 import { CountryDropdown } from 'react-country-region-selector'
+import { verification } from '../../verification/verification'
 const CheckoutDetails = () => {
     const totalPrice = useSelector(state => state.checkoutReducer.totalPrice)
   const orderDetails = useSelector(state => state.orderReducer.orderDetails)
@@ -13,7 +14,7 @@ const CheckoutDetails = () => {
     const dispatch = useDispatch()
 
    const [country, setCountry] = useState('')
-
+  const [errorMessage, setErroMessage] = useState('')
   const [orderForm, setUserDetails] = useState({
 
     street: {
@@ -21,7 +22,7 @@ const CheckoutDetails = () => {
       elementType: 'input',
       type: "text",
       placeholder: "Street address",
-      isValid: true,
+      invalid: false,
       touched: false
     },
     city: {
@@ -29,7 +30,7 @@ const CheckoutDetails = () => {
       elementType: 'input',
       type: "text",
       placeholder: "City",
-      isValid: true,
+      invalid: false,
       touched: false
     },
     eircode: {
@@ -37,7 +38,7 @@ const CheckoutDetails = () => {
       elementType: 'input',
       type: "text",
       placeholder: "eircode",
-      isValid: true,
+      invalid: false,
       touched: false
     }
 
@@ -57,21 +58,39 @@ const CheckoutDetails = () => {
         }
         console.log(orderDetails)
 
-        dispatch(actionCreators.getOrderDetails(orderDetails))
-      if (orderDetails != null){
-        dispatch(actionCreators.openBackdrop());
-        dispatch(actionCreators.openPayment());
+      let errorMessage = []
+
+      if (orderForm.street.value.length < 5) {
+        errorMessage.push(' Invalid street')
       }
+      else if (orderForm.city.value.length < 2) {
+        errorMessage.push('Invalid city')
+      }
+      else if (orderForm.city.value.length > 2 && orderForm.street.value.length > 5) {
+        dispatch(actionCreators.getOrderDetails(orderDetails))
+        
+          dispatch(actionCreators.openBackdrop());
+          dispatch(actionCreators.openPayment());
+        
+      }
+      
+        
       
     }
   const updateValue = (event, id) => {
 let value = event.target.value
+
+    let verifyInput = verification(id, value)
+    let errorMessage = verifyInput.errorMessages
+    let invalid = verifyInput.invalid
+    setErroMessage(errorMessage)
     const updatedValue = {
       ...orderForm,
       [id]:{
         ...orderForm[id],
         value: value,
-        touched: true
+        touched: true,
+        invalid: invalid
       }
     }
     setUserDetails(updatedValue)
@@ -99,7 +118,7 @@ const selectCountry = (val) =>{
           placeholder={order.config.placeholder}
           elementType={order.config.elementType}
           type={order.config.type}
-          isValid={order.config.isValid}
+          invalid={order.config.invalid}
           touched={order.config.touched}
           onChange={(event) => updateValue(event,order.id)}
         />
@@ -125,7 +144,7 @@ const selectCountry = (val) =>{
           <p>Subtotal: ${totalPrice}</p>
        
         </div>
-       
+        <p className={classes.errorText}>{errorMessage}</p>
         <Button onClick={openPayment} btnStyle="boxShadow" btnColor="primary">
           Review Order
         </Button>

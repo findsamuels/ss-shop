@@ -1,4 +1,12 @@
+@import '../../scss/main.scss';
 
 .registerLink{
     padding: 1rem 0;
+}
+
+.errorText{
+    color: $color-red;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
 }

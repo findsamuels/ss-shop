@@ -24,8 +24,14 @@ export {
 } from './order/reducer'
 
 
+
+
 export {
     orderItemReducer
 }from './orderItems/reducer'
+
+export {
+    buyOptionsReducer
+} from './buyOptions/reducer'
 
 

@@ -45,3 +45,11 @@ color: $color-primary;
             width: 100%;
         }
     }
+
+    .rounded{
+        border-radius: .5rem;
+    }
+
+    .invalid{
+        @include border(.1rem, $color-red !important)
+    }

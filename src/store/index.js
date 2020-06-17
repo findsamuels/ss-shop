@@ -1,7 +1,7 @@
 export {
     openBackdrop,
     closeBackdrop,
-    togglesSideBar,
+    openSideBar,
     closeSideBar,
     showSideBarBackdrop,
     closeSideBarBackdrop,
@@ -13,6 +13,12 @@ export {
     closePayment
 }from './Ui/action'
 
+export {
+buyOptions,
+openBuyOptions,
+closeBuyOptions
+}from './buyOptions/action'
+
 export{
 searchShopItem,
 updateShopPurchasable,
@@ -20,6 +26,7 @@ resetShop,
 setShopItems,
 resetShopItem,
 getItemValue,
+getSizeValue,
 filterCategories
 }from './shop/action'
 
@@ -52,4 +59,6 @@ getOrderDetails
 export {
   orderStart
 } from './order/action'
+
+
 

@@ -4,3 +4,23 @@
     margin: 1rem auto;
    
 }
+
+.controlContainer{
+    @include respond(phone){
+        display: none;
+    }
+}
+
+.filterContainer{
+ @include respond(phone){
+        display: none;
+    }
+}
+.searchContainer{
+
+}
+
+.leftHeader{
+    @include headerLeft;
+    color: $color-darkGrey;
+}

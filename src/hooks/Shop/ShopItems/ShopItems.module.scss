@@ -6,6 +6,10 @@
 }
 .ViewMore{
     margin: 0 auto;
+    color: $color-primary;
+    @include headerCentre;
+    text-transform: none;
+    cursor: pointer;
 }
 
 .ShopItem{
@@ -24,4 +28,64 @@
     text-align: center;
     font-weight: bold;
     font-size: 2rem;
+}
+
+
+.BuyOptions{
+
+}
+.ImgDiv{
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
+    
+}
+.BuyOptionsImg{
+width: 97%;
+
+
+}
+
+.BuyOptionsOptions{
+
+}
+.headerCentre{
+     @include headerCentre
+}
+.headerLeft{
+    @include headerLeft
+}
+.description{
+    font-weight: bold;
+    padding: 1rem 0;
+    
+}
+
+.ItemList{
+     margin: 1rem auto;
+@include boxShadow(.2rem, 1rem, $color-grey);
+border: none;
+    text-align: start;
+    img{
+        width: 100%;
+        background-color: $color-grey;
+    }
+}
+.itemImage{
+background-color: $color-grey;
+min-height: 20rem;
+}
+.qtyClass{
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.Price{
+    padding: 1rem 0;
+   
+}
+
+.Title{
+    text-align: start;
+    
 }

@@ -1,0 +1,22 @@
+@import '../../scss/main.scss';
+
+.BuyOptions{
+
+}
+
+.BuyOptionsImg{
+width: 100%;
+}
+
+.BuyOptionsOptions{
+
+}
+
+.headerLeft{
+    @include headerLeft
+}
+.description{
+    font-weight: bold;
+    padding: 1rem 0;
+    
+}

@@ -38,7 +38,8 @@ uiReducer: reducerTypes.UiReducer,
   checkoutReducer: reducerTypes.checkoutReducer,
   authReducer: reducerTypes.authReducer,
   orderReducer: reducerTypes.orderReducer,
-  orderItemReducer: reducerTypes.orderItemReducer
+  orderItemReducer: reducerTypes.orderItemReducer,
+  buyOptionsReducer: reducerTypes.buyOptionsReducer
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -14,6 +14,7 @@ import Stripe from './Api/Stripe/Stripe';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as actionCreators from './store/index'
+
 const App = () => {
   let shopItem = useSelector(state => state.shopItemReducer.shopItem)
 const dispatch = useDispatch()
@@ -42,7 +43,8 @@ const dispatch = useDispatch()
       <ControlBar />
       <SideBar/>
       <Cart />
-      <Login history={history}/>
+      <Login />
+     
       <Stripe/>
     <Switch>
         <Route path="/" exact component={Shop}/>

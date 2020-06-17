@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes'
-import axios from '../../axios/axios'
+import {axiosInstance, axiosDatabase} from '../../axios/axios'
 export const startOrder = (deliveryDetails, cartItems ) => {
     console.log(cartItems)
     console.log(deliveryDetails)
@@ -13,7 +13,7 @@ export const startOrder = (deliveryDetails, cartItems ) => {
         let token = localStorage.getItem('token')
         dispatch(orderStart())
         let queryParams = `?auth=${token}&userId=${userId}`
-        axios.post('/orders.json' + queryParams, allOrder)
+        axiosInstance.post('/orders.json' + queryParams, allOrder)
      .then(res => {
         console.log(res.data)
          console.log(res.data.localId)

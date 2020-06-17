@@ -28,6 +28,7 @@ const BackDrop = (props) => {
         dispatch(actionCreators.closeCart())
         dispatch(actionCreators.closeLogin())
         dispatch(actionCreators.closePayment());
+        dispatch(actionCreators.closeBuyOptions())
     }
 
     return(

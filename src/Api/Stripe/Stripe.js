@@ -42,6 +42,7 @@ let emptycart = []
         setTimeout(() => {
           dispatch(actionCreators.closePayment());
           dispatch(actionCreators.closeBackdrop());
+          setOrderPlaced(false)
           history.push('/')
         }, 2000)
         

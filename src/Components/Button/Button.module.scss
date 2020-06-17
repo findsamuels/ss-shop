@@ -29,7 +29,9 @@ background-color: $color-darkGrey;
     }
     }
 }
-
+.hide{
+    display: none;
+}
 .disabled{
     background-color: $color-red !important;
 
@@ -42,6 +44,9 @@ background-color: $color-darkGrey;
     }
 }
 
+.margin{
+    margin: 1rem 0;
+}
 
 .lg{
  font-size: 4rem;
@@ -53,7 +58,15 @@ background-color: $color-darkGrey;
 .primary{
     background-color: $color-primary;
     &:hover{
-        background-color: $color-darkGrey;
+       opacity: 0.8;
+    }
+}
+.primaryOutline{
+    background-color: transparent;
+    color: $color-primary;
+    @include border(.1rem, $color-primary)
+    &:hover{
+        opacity: 0.8;
     }
 }
 .secondary{

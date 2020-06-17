@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes'
-import axios from '../../axios/axios'
+import {axiosInstance} from '../../axios/axios'
 
 
 export const isAuth = (token, userId, username) => {
@@ -9,13 +9,24 @@ return{
     token: token,
     userId: userId,
     username: username,
+   
 }
 }
 
-export const authFailed = () => {
+export const registerAuthFailed = (err) => {
 
     return {
-        type: actionTypes.AUTH_FAILED,
+        type: actionTypes.REGISTER_AUTH_FAILED,
+        err: err
+        
+    }
+}
+
+export const loginAuthFailed = (err) => {
+
+    return {
+        type: actionTypes.LOGIN_AUTH_FAILED,
+        err: err
         
     }
 }
@@ -39,13 +50,13 @@ dispatch(startAuth())
         returnSecureToken: true
     }
         let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZzh8XT-QDBqwMZIPy2Qil1ow4idiCDUs";
-    axios.post(url,authData)
+    axiosInstance.post(url,authData)
     .then(res => {
         console.log(res.data)
         dispatch(login(email, password))   
     })
     .catch(err => {
-        dispatch(authFailed())
+        dispatch(registerAuthFailed(err.message))
         console.log(err.data)
     })
 }
@@ -61,7 +72,7 @@ export const login = (email, password) => {
             returnSecureToken: true
         }
     let url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBZzh8XT-QDBqwMZIPy2Qil1ow4idiCDUs";
-        axios.post(url, authData)
+        axiosInstance.post(url, authData)
             .then(res => {
                 console.log(res.data)
                
@@ -74,8 +85,8 @@ export const login = (email, password) => {
 
             })
             .catch(err => {
-                dispatch(authFailed())
-                console.log(err.message)
+                dispatch(loginAuthFailed(err.message))
+                console.log('username or password invalid')
             })
     }
 }

@@ -13,12 +13,16 @@ const ControlComponent = (props) => {
   const toggleCart = () => {
     dispatch(actionCreators.toggleCart())
     dispatch(actionCreators.openBackdrop())
+    dispatch(actionCreators.closeSideBar())
+    dispatch(actionCreators.closeSideBarBackdrop())
   }
 
   const showLogin = () => {
     dispatch(actionCreators.openLogin())
     dispatch(actionCreators.openBackdrop())
     dispatch(actionCreators.checkoutNotClicked())
+    dispatch(actionCreators.closeSideBar())
+    dispatch(actionCreators.closeSideBarBackdrop())
   }
 
   const logout = () => {
@@ -27,9 +31,10 @@ const ControlComponent = (props) => {
   }
   let cartAmount = []
 
-  let showLogIn = (auth ? <div className={classes.loggedInText}>
-    <p >Welcome {username} <span style={{ padding: '0 1rem' }}><Button onClick={logout} btnColor='secondary'>Log out</Button></span></p> 
-    </div> : <Button onClick={showLogin} btnColor='danger'>Log in</Button>)
+  let showLogIn = (auth ? <React.Fragment> <div className={classes.loggedInText}>
+    <p >Welcome {username} <span style={{ padding: '0 1rem' }}></span></p> 
+
+  </div> <div className={classes.logoutButton}><p onClick={logout} btnColor='secondary'>Log out</p></div> </React.Fragment>: <Button  onClick={showLogin} btnColor='danger'>Log in</Button>)
 
  cartAmount.push(classes.cartAmount)
   if(amountInCart < 1){

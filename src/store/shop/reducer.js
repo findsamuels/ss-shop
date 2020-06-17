@@ -1,14 +1,14 @@
 import * as actionTypes from '../actionTypes'
 import utilityObject from '../../Utility/Utility'
-import shopImg from '../../assets/img/bedroom.png'
-import gardenImg from '../../assets/img/garden.png'
-import bathroomimg from '../../assets/img/bathroom.png'
-import shirtimg from '../../assets/img/shirt.png'
-import mirrorimg from '../../assets/img/mirror.png'
-import runnersimg from '../../assets/img/runners.png'
-import tableimg from '../../assets/img/kitchen.png'
-import accessoriesImg from '../../assets/img/accessories.png'
-import CouchImg from '../../assets/img/livingRoom.png'
+import whiteshirt2 from '../../assets/img/whiteshirtgirl2.jpg'
+import redshirt from '../../assets/img/redshirt.jpg'
+import redshirtgirl from '../../assets/img/redshirtgirl.jpg'
+import redandblackshirt from '../../assets/img/redandblackshirt.jpg'
+import whiteshirtgirl from '../../assets/img/whiteshirtgirl.jpg'
+import spartanshirt from '../../assets/img/spartanshirt.jpg'
+import blackshirt2 from '../../assets/img/blackshirt2.jpg'
+import yellowjumper from '../../assets/img/yellowhoddie.jpg'
+import blackshirt from '../../assets/img/blackshirt.jpg'
 const initialState = {
 
     inputEntered: false,
@@ -19,108 +19,121 @@ const initialState = {
     shopItem: {
         bed1: {
             category: 'Item 1',
-            img: shirtimg,
-            title: 'T-Shirt',
+            img: whiteshirt2,
+            title: 'Bright Top',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 45.32,
-            selectedValue: 1,
+            quantityValue: '',
+            sizeValue: '',
             addedToCart: false,
-            quantity: [1, 2, 3, 4, 5],
+            quantity: ['Select quantity', 1, 2, 3, 4],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
             buttonText: 'Add to cart'
         },
         bed2: {
             category: 'Item 1',
-            img: runnersimg,
-            title: 'Workout Runners',
+            img: redshirt,
+            title: 'Red Shirt',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 98.01,
-            selectedValue: 1,
+            quantityValue: '',
+            sizeValue: '',
             addedToCart: false,
-            quantity: [1, 2, 3],
-           
+            quantity: ['Select quantity', 1, 2, 3, 4, 5],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
             buttonText: 'Add to cart'
         },
         bed3: {
             category: 'Item 1',
-            img: shopImg,
-            title: 'Double Bed',
+            img: redshirtgirl,
+            title: 'Lovely Red Shirt',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 78.65,
             addedToCart: false,
-            selectedValue: 1,
-            quantity: [1, 2],
-           
+             quantityValue: '',
+            sizeValue: '',
+            quantity: ['Select quantity', 1, 2, 3, 4],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
             buttonText: 'Add to cart'
         },
 
         mirror: {
             category: 'Item 2',
-            img: mirrorimg,
-            title: 'Mirror',
+            img: redandblackshirt,
+            title: 'Mixed Top',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 45.32,
-            selectedValue: 1,
+             quantityValue: '',
+            sizeValue: '',
             addedToCart: false,
-            quantity: [1, 2, 3, 4, 5],
+            quantity: ['Select quantity', 1, 2, 3, 4],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
             buttonText: 'Add to cart'
         },
         table: {
             category: 'Item 2',
-            img: tableimg,
-            title: 'Table',
+            img: whiteshirtgirl,
+            title: 'White Shirt',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 98.01,
-            selectedValue: 1,
+             quantityValue: '',
+            sizeValue: '',
             addedToCart: false,
-            quantity: [1, 2, 3],
+            quantity: ['Select quantity', 1, 2, 3],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
 
             buttonText: 'Add to cart'
         },
         lawnmower: {
             category: 'Item 2',
-            img: gardenImg,
-            title: 'Garden Mat',
+            img: spartanshirt,
+            title: 'Spartan Shirt',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 78.65,
             addedToCart: false,
-            selectedValue: 1,
-            quantity: [1, 2],
-
+             quantityValue: '',
+            sizeValue: '',
+            quantity: ['Select quantity', 1, 2],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
             buttonText: 'Add to cart'
         },
          toiletTowel: {
             category: 'Item 3',
-             img: bathroomimg,
-             title: 'ToiletTowel',
+             img: blackshirt2,
+             title: 'Dark Shirt',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 45.32,
-            selectedValue: 1,
+             quantityValue: '',
+             sizeValue: '',
             addedToCart: false,
-            quantity: [1, 2, 3, 4, 5],
+            quantity: ['Select quantity', 1, 2, 3, 4],
+             size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
             buttonText: 'Add to cart'
         },
         shower: {
             category: 'Item 3',
-            img: accessoriesImg,
-            title: 'Beauty Accessories',
+            img: yellowjumper,
+            title: 'Yellow Jumper',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 98.01,
-            selectedValue: 1,
+            quantityValue: '',
             addedToCart: false,
-            quantity: [1, 2, 3],
-
+            sizeValue: '',
+            quantity: ['Select quantity', 1, 2, 3, 4, 5],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL','XXL'],
             buttonText: 'Add to cart'
         },
         bath: {
             category: 'Item 3',
-            img: CouchImg,
-            title: 'Living room couch',
+            img: blackshirt,
+            title: 'Cool Black shirt',
             description: 'This item including the images are listed here as a placeholder please replace them when using template. thank you for trying this template',
             price: 78.65,
             addedToCart: false,
-            selectedValue: 1,
-            quantity: [1, 2],
-
+            quantityValue: '',
+            quantity: ['Select quantity', 1, 2],
+            size: ['UK Size: Please Select', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
+            sizeValue: '',
             buttonText: 'Add to cart'
         }
     }
@@ -136,28 +149,28 @@ const searchShopItems = (state, action) => {
 }
 
 
-const updateShopPurchasable = (state, action) => {
+// const updateShopPurchasable = (state, action) => {
     
    
 
-    const updatedShop = {
-        ...state.shopItem,
-        [action.itemId]: {
-            ...state.shopItem[action.itemId],
-            addedToCart: true,
-            buttonText:'Item in cart',
+//     const updatedShop = {
+//         ...state.shopItem,
+//         [action.itemId]: {
+//             ...state.shopItem[action.itemId],
+//             addedToCart: true,
+            
            
-        }
-    }
-    console.log(action.itemInCart)
+//         }
+//     }
+//     console.log(action.itemInCart)
    
-    return utilityObject(state, {
-        shopItem: updatedShop,
-        filteredShopItems: updatedShop
+//     return utilityObject(state, {
+//         shopItem: updatedShop,
+//         filteredShopItems: updatedShop
 
         
-    })
-}
+//     })
+// }
 
 const resetShop = (state, action) => {
    let resetShop = JSON.parse(localStorage.getItem('shopItem'))
@@ -192,7 +205,8 @@ const getItemValue = (state, action) => {
         ...state.shopItem,
         [action.itemId]: {
             ...state.shopItem[action.itemId],
-            selectedValue: action.value,
+            quantityValue: action.value,
+            
             
             
         }
@@ -203,6 +217,26 @@ const getItemValue = (state, action) => {
         })
     
 }
+
+const getSizeValue = (state, action) => {
+
+    const updatedShop = {
+        ...state.shopItem,
+        [action.itemId]: {
+            ...state.shopItem[action.itemId],
+            sizeValue: action.value,
+            
+
+
+        }
+    }
+
+    return utilityObject(state, {
+        shopItem: updatedShop,
+    })
+
+}
+
 const filterCategories = (state, action) => {
 
 
@@ -222,14 +256,16 @@ export const shopItemReducer = (state = initialState, action) => {
        
         case actionTypes.SEARCH_SHOP_ITEMS:
             return searchShopItems(state, action)
-            case actionTypes.UPDATE_SHOP_PURCHASABLE:
-                return updateShopPurchasable(state,action)
+            // case actionTypes.UPDATE_SHOP_PURCHASABLE:
+            //     return updateShopPurchasable(state,action)
         case actionTypes.RESET_SHOP:
             return resetShop(state, action)
             case actionTypes.RESET_SHOP_ITEM:
             return resetShopItem(state, action)
             case actionTypes.GET_ITEM_VALUE:
             return getItemValue(state, action)
+        case actionTypes.GET_SIZE_VALUE:
+            return getSizeValue(state, action)
         case actionTypes.FILTER_CATEGORIES:
             return filterCategories(state, action)
             

@@ -3,30 +3,50 @@
 .Cart{
     margin: auto;
     padding: 1rem;
-    display: flex;
     width: 100%;
-    align-items: center;
-    justify-content: space-between;
+    display: inline-block;
     @include borderBottom(.1rem, $color-grey);
 
     img{
 width: 100%;
-height: 100%;
+height: auto;
     }
     h4{
 font-weight: bold;
     }
-    p{
-font-weight: lighter;
-    }
+   
 }
+.itemTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include borderBottom(.1rem, $color-grey);
+    margin-bottom: .5rem;
 
+}
+.ItemRow{
+text-align: center;
+align-items: flex-start;
+justify-content: start;
+
+p{
+    font-size: 1.2rem;
+    text-align: start;
+}
+}
+.itemValue{
+    font-weight: bold;
+}
 .descContainer{
-width: 50%;
+
 }
 
 .cartImgContainer{
-width: 40%;
+
+}
+
+.headerCentre{
+     @include headerCentre
 }
 
 .TotalPriceContainer{
@@ -56,4 +76,8 @@ font-weight: lighter;
 
 .cartLink{
    @include noDecoration
+}
+
+.removeItem{
+    padding: 1rem 0;
 }

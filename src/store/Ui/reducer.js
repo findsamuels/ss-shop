@@ -21,9 +21,9 @@ const closeBackdrop = (state, action) => {
   })
 }
 
-const toggleSideBar = (state, action) => {
+const openSideBar = (state, action) => {
     return UtilityObject(state, {
-        showSideBar: state.showSideBar = !state.showSideBar
+        showSideBar: state.showSideBar = true
     })
 }
 const closeSideBar = (state, action) => {
@@ -84,8 +84,8 @@ export const UiReducer = (state = initialState, action) => {
       case actionTypes.CLOSE_BACKDROP:
         return closeBackdrop(state, action);
 
-      case actionTypes.TOGGLE_SIDEBAR:
-        return toggleSideBar(state, action);
+      case actionTypes.OPEN_SIDEBAR:
+        return openSideBar(state, action);
       case actionTypes.CLOSE_SIDEBAR:
         return closeSideBar(state, action);
       case actionTypes.TOGGLE_CART:

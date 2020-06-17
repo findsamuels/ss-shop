@@ -29,9 +29,9 @@ export const closeSideBarBackdrop = () => {
 
 
 
-export const togglesSideBar = () => {
+export const openSideBar = () => {
     return {
-        type: actionTypes.TOGGLE_SIDEBAR
+        type: actionTypes.OPEN_SIDEBAR
     }
 }
 

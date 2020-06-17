@@ -1,11 +1,15 @@
 @import '../../scss/main.scss';
 
-.ItemControl{
+.FilterCategories{
 margin: 0 auto;
     text-align: start;
     @include respond(phone){
       
         text-align: center;
+    }
+
+    @include respond(phone){
+        background-color: $color-white;
     }
 }
 

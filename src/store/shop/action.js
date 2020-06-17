@@ -20,13 +20,23 @@ export const setShopItems = () => {
     }
 }
 
-export const getItemValue = (value, itemId, prices) => {
+export const getItemValue = (value, itemId) => {
 
     return {
         type: actionTypes.GET_ITEM_VALUE,
         value: value,
         itemId: itemId,
-        prices: prices
+        
+       
+    }
+}
+
+export const getSizeValue = (value, itemId) => {
+
+    return {
+        type: actionTypes.GET_SIZE_VALUE,
+        value: value,
+        itemId: itemId,
     }
 }
 

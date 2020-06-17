@@ -7,7 +7,9 @@ const initialState = {
     auth: null,
     username: '',
     userId: '',
-    loading: false
+    loading: false,
+    registerErr: null,
+    loginErr: null
 }
 
 const startAuth = (state, action) => {
@@ -24,14 +26,24 @@ console.log(action.auth)
         auth: action.token,
         username: action.username,
         userId: action.userId,
+        loading: false,
+        registerErr: null,
+        loginErr: null
+    })
+}
+
+const registerAuthFailed = (state, action) => {
+    console.log(action.auth)
+    return utilityObject(state, {
+        registerErr: action.err,
         loading: false
     })
 }
 
-const authFailed = (state, action) => {
+const loginAuthFailed = (state, action) => {
     console.log(action.auth)
     return utilityObject(state, {
-    
+        loginErr: action.err,
         loading: false
     })
 }
@@ -40,7 +52,8 @@ const removeAuth = (state, action) => {
     
     return utilityObject(state, {
        auth: null,
-       username: null
+       username: null,
+       
     })
 }
 
@@ -59,8 +72,10 @@ export const authReducer = (state = initialState, action) => {
             return startAuth(state, action)
         case actionTypes.IS_AUTH:
             return isAuth(state, action)
-        case actionTypes.AUTH_FAILED:
-            return authFailed(state, action)
+        case actionTypes.LOGIN_AUTH_FAILED:
+            return loginAuthFailed(state, action)
+        case actionTypes.REGISTER_AUTH_FAILED:
+            return registerAuthFailed(state, action)
         case actionTypes.REMOVE_AUTH:
             return removeAuth(state, action)
         case actionTypes.CHECK_AUTH:

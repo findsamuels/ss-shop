@@ -14,6 +14,15 @@
     background-color: $color-white;
     display: none;
 }
+.md{
+width: 50%;
+}
+.lg{
+width: 80%;
+}
+.sm{
+width: 30%;
+}
 .showLogin{
     display: block;
     
@@ -26,9 +35,14 @@
     display: block;
     
 }
+.openBuyOptions{
+    display: block;
+     
+      max-height: 90%;
+    
+}
 @include respond(largeTablet){
     .Modal{
- 
     width: 50%;
 
 }

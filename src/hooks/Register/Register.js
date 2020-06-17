@@ -7,15 +7,20 @@ import Button from '../../Components/Button/Button'
 import { useSelector, useDispatch } from 'react-redux'
 import * as actionCreators from '../../store/index'
 import {Redirect} from 'react-router-dom'
+import { verification } from '../verification/verification'
 
 const Register = (props) => {
   const checkoutClicked = useSelector(state => state.checkoutReducer.checkoutClicked)
-     const auth = useSelector((state) => state.authReducer.auth != null);
+  const loading = useSelector(state => state.authReducer.loading)
+  const registerErr = useSelector(state => state.authReducer.registerErr !== null)
+  const auth = useSelector(state => state.authReducer.auth != null)
+ 
     const dispatch = useDispatch()
     const history = useHistory()
 
  
-
+  const [disabled, setDisabled] = useState(false)
+  const [errorMessage, setErrorMessage] = useState([])
     const [userDetails, setUserDetails] = useState({
 
       username: {
@@ -23,7 +28,7 @@ const Register = (props) => {
         elementType: 'input',
         type:"text",
         placeholder:"Username",
-        isValid: true,
+        invalid: false,
         touched: false
       },
       email: {
@@ -31,7 +36,7 @@ const Register = (props) => {
         elementType: 'input',
         type: "email",
         placeholder: "Email Address",
-        isValid: true,
+        invalid: false,
         touched: false
       },
       password: {
@@ -39,51 +44,98 @@ const Register = (props) => {
         elementType: 'input',
         type: "password",
         placeholder: "Password",
-        isValid: true,
+        invalid: false,
         touched: false
       }
   
 
     })
+  useEffect(() => {
+
+
+
+    if (auth) {
+
+ 
+      if (!checkoutClicked) {
+        history.push('/')
+      }
+
+      else if (checkoutClicked) {
+        history.push('/checkout')
+      }
+
+    }
+  
+
+  }, [auth, checkoutClicked, history, dispatch])
+
+  useEffect(() => {
+    let errorMessages = []
+    if (!loading && registerErr ) {
+     
+        errorMessages.push('User already exist please login')
+        setErrorMessage(errorMessages)
+
+    }
+  },[registerErr, loading])
 
   const getFormValue = (event, formName) => {
     let value = event.target.value
 
-    
+    let myVerified = verification(formName, value)
 
     let updatedForm = {
       ...userDetails,
       [formName]:{
         ...userDetails[formName],
         value: value,
-        touched: true
+        touched: true,
+        invalid: myVerified.invalid
       }
     }
     setUserDetails(updatedForm)
+    setDisabled(myVerified.disabled)
+    setErrorMessage(myVerified.errorMessages)
+  
 
+  }
+
+  const verifyRegister = (email, password, username) => {
+    let rejex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    let errorMessage = []
+
+    if (!rejex.test(email)) {
+      errorMessage.push('Email invalid')
+    }
+    else if (password.length < 6) {
+      errorMessage.push('Password too short')
+    }
+    else if (username.length < 3) {
+      errorMessage.push('Username too short')
+    }
+    else if (password.length > 5 && rejex.test(email) && username.length > 2) {
+      dispatch(
+        actionCreators.register(
+          username,
+          email,
+          password,
+
+        )
+      );
+      
+    }
+    setErrorMessage(errorMessage)
+   
   }
     const register = (event) => {
         event.preventDefault()
 
+      verifyRegister(userDetails.email.value, userDetails.password.value, userDetails.username.value)
 
-      dispatch(
-        actionCreators.register(
-          userDetails.username.value,
-          userDetails.email.value,
-          userDetails.password.value,
-       
-        )
-      );
-        
-      console.log(userDetails.username.value)
 
-      if (!checkoutClicked){
-        history.push('/')
-      }
-
-        else if (checkoutClicked){
-            history.push('/checkout')
-        }
+      
   
     }
 const openLogin = () => {
@@ -98,7 +150,7 @@ const openLogin = () => {
 
 let formArray = []
 
-let registerId = ''
+
 
   for (let formEl in userDetails){
     formArray.push({
@@ -108,7 +160,7 @@ let registerId = ''
   }
 
   let userForm = formArray.map( userDetail => {
-    registerId = userDetail.id
+ 
     return(
      
       
@@ -119,7 +171,7 @@ let registerId = ''
           type={userDetail.config.type}
           placeholder={userDetail.config.placeholder}
           value={userDetail.config.value}
-        isValid={userDetail.config.isValid}
+        invalid={userDetail.config.invalid}
           touched={userDetail.config.touched}
         onChange={(event) => getFormValue(event, userDetail.id)}
         />
@@ -144,17 +196,18 @@ let registerId = ''
 
         {userForm}
 
-
+        <p className={classes.errorText}>{errorMessage}</p> 
         <div className={classes.buttonDiv}>
           <Button onClick={register} btnStyle="boxShadow" btnColor="primary">
             Register
-            </Button>
+            </Button> 
+          
         </div>
       </Form>
     </div>)
 
 
-  if (auth ) {
+  if ((auth) && (!checkoutClicked)) {
     registerPage = <Redirect to='/' />
   }
   

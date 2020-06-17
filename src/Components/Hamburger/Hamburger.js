@@ -10,7 +10,7 @@ const dispatch = useDispatch()
     const control = () => {
         dispatch(actionCreators.closeCart())
         dispatch(actionCreators.showSideBarBackdrop())
-        dispatch(actionCreators.togglesSideBar())
+        dispatch(actionCreators.openSideBar())
     }
 
     return(

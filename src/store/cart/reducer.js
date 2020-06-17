@@ -14,17 +14,17 @@ const initialState = {
 }
 
 const addToCart = (state, action) => {
-    let checkDups = state.cartItemArray.map(dup => dup.id)
+ 
     let itemArray = state.cartItemArray    
 
-    if (!checkDups.includes(action.itemId)) {
+    let id = Math.random().toString(36).replace(/[^a-z]+/g, '')
        
         itemArray.push({
             id: action.itemId,
             config: action.cartItems
         })
 
-    } 
+    
     return utilityObject(state, {
         cartItemArray: itemArray,  
         amountInCart: action.amountInCart,

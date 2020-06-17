@@ -44,3 +44,9 @@ width: 100%;
 .HeaderLeft{
     @include headerLeft
 }
+.errorText{
+    color: $color-red;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

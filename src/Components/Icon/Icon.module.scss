@@ -18,7 +18,7 @@ font-size: 4rem;
 font-size: 2rem;
 }
 .xs{
-font-size: 1rem;
+font-size: 1.5rem;
 }
 .white{
     color: $color-white;
@@ -27,6 +27,21 @@ font-size: 1rem;
 }
     
 }
+
+.blackAndWhite{
+    color: $color-white;
+    &:hover{
+    color: $color-grey;
+}
+    @include respond(phone){
+        color: $color-darkGrey;
+           &:hover{
+    color: $color-darkGrey;
+    opacity: .8;
+}
+    }
+}
+
 .grey{
     color: $color-grey;
     &:hover{
@@ -36,7 +51,7 @@ font-size: 1rem;
 .darkGrey{
     color: $color-darkGrey;
     &:hover{
-    color: $color-grey;
+     opacity: .8;
 }
 }
 .black{
